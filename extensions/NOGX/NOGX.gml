@@ -85,7 +85,7 @@ if(os_type==os_gxgames) {
 			h = browser_height * scl;
 		}
 		
-		if( w==global.__NOGX_window_w && h==global.__NOGX_window_h ) {
+		if( (w==global.__NOGX_window_w && h==global.__NOGX_window_h) || w<1 || h<1 ) {
 			return;
 		}
 		
