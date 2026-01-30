@@ -15,7 +15,12 @@ This is a special folder in the root directory of your project where you can pla
 The extension will include them in the **GX target** builds.
 You can also use your custom `index.html` file located here, but it should be based on the default `index.html` file from the extension.
 
-### 3. Screen size control (works in other targets, not just GX)
+### 3. send_async_event_social
+The extension adds the ability to send `ev_async_social` from JS to GM for the **GX target**.
+The interface is identical to the one in **HTML5**, namely:
+`GMS_API.send_async_event_social(map)`
+
+### 4. Screen size control (works in other targets, not just GX)
 The extension manages the screen size within the specified aspect ratio constraints and also prevents image blur, even in an HTML5 target.
 
 ## Extension Options
