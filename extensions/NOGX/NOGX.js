@@ -10,7 +10,7 @@ function triggerPayment(itemId, _callback_PaymentComplete) {
 
 // GMS_API available in HTML5 export but for GX(WASM).
 // Required to call the GMS_API.send_async_event_social
-GMS_API = {
+var GMS_API = {
 	__GML_send_async_event_social_ADDR: undefined,
 	
 	send_async_event_social: function(map) {
@@ -30,12 +30,14 @@ GMS_API = {
 	}
 }
 
-if (typeof __NOGX_ready === 'undefined') __NOGX_ready = false;
-__NOGX_canvasSizeW = 640;
-__NOGX_canvasSizeH = 360;
-__NOGX_limitAspectRatio = false;
-__NOGX_minAspectRatio = 16/9;
-__NOGX_maxAspectRatio = 16/9;
+if (typeof __NOGX_ready === 'undefined') {
+	var __NOGX_ready = false;
+}
+var __NOGX_canvasSizeW = 640;
+var __NOGX_canvasSizeH = 360;
+var __NOGX_limitAspectRatio = false;
+var __NOGX_minAspectRatio = 16/9;
+var __NOGX_maxAspectRatio = 16/9;
 
 function __NOGX_init(limitAspectRatio, minAsp, maxAsp) {
 	__NOGX_limitAspectRatio = limitAspectRatio;
@@ -44,7 +46,7 @@ function __NOGX_init(limitAspectRatio, minAsp, maxAsp) {
 	__NOGX_ready = true;
 	__NOGX_update_canvas_size();
 }
- 
+
 function __NOGX_update_canvas_size() {
 	const canvasElement = Module.canvas;
 	const dpr = window.devicePixelRatio || 1;

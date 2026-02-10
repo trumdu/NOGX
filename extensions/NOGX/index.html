@@ -85,7 +85,7 @@
 
     function doJSExceptionHandler( exceptionJSON ) {
       if (typeof g_pJSExceptionHandler == "function") {
-        var exception = JSON.parse( exceptionJSON );
+        const exception = JSON.parse( exceptionJSON );
         g_pJSExceptionHandler( exception );
       }
     }
@@ -99,7 +99,7 @@
 
     function onGameSetWindowSize(width, height) {}
 
-    __NOGX_ready = false;
+    var __NOGX_ready = false;
     function updateCanvasSize() {
       if(__NOGX_ready) {
         __NOGX_update_canvas_size();
@@ -112,6 +112,13 @@
     document.addEventListener('contextmenu', (event) => {
       event.preventDefault();
     });
+
+    document.addEventListener('touchstart', (event) => {
+      const canvasElem = document.getElementById('canvas');
+      if(event.target===document.body || event.target===canvasElem) {
+        event.preventDefault();
+      }
+    }, { passive: false });
   </script>
   <script async src="runner.js"></script>
 </body>
